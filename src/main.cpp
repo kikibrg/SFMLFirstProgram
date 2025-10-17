@@ -15,7 +15,7 @@ int main()
 
     float stepx = 5;
 
-    while (window.isOpen())
+    while (window.isOpen() && !Keyboard::isKeyPressed(Keyboard::Escape))
     {
         Event event;
         while (window.pollEvent(event))
