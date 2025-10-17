@@ -13,6 +13,8 @@ int main()
     shape.setRadius(100.0);
     shape.setFillColor(Color::Magenta);
 
+    float stepx = 5;
+
     while (window.isOpen())
     {
         Event event;
@@ -22,7 +24,15 @@ int main()
                 window.close();
         }
 
-        shape.move(5,0);
+        if (shape.getPosition().x > 600)
+        {
+            stepx = -5;
+        } else if (shape.getPosition().x < 0)
+        {
+            stepx = 5;
+        }
+
+        shape.move(stepx,0);
         window.clear();
         window.draw(shape);
         window.display();
