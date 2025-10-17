@@ -11,6 +11,8 @@ int main()
 
     CircleShape shape;
     shape.setRadius(100.0);
+    shape.setOrigin(100, 100);
+    shape.setPosition(300, 300);
     shape.setFillColor(Color::Magenta);
 
     float stepx = 5;
@@ -24,14 +26,15 @@ int main()
                 window.close();
         }
 
-        if (shape.getPosition().x > 600)
+        if (shape.getPosition().x > 700)
         {
             stepx = -5;
-        } else if (shape.getPosition().x < 0)
+        } else if (shape.getPosition().x < 100)
         {
             stepx = 5;
         }
 
+        cout << shape.getPosition().x << endl;
         shape.move(stepx,0);
         window.clear();
         window.draw(shape);
